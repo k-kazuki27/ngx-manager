@@ -16,6 +16,8 @@
       <span (click)="drawer.toggle()">ngx-manager</span>
     </mat-toolbar>
     <!-- Add Content Here -->
-    <router-outlet (deactivate)="onDeactivate()"></router-outlet>
+    <main>
+      <router-outlet (deactivate)="onDeactivate()"></router-outlet>
+    </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
