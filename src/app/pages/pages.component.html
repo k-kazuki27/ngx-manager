@@ -15,8 +15,7 @@
       </button>
       <span (click)="drawer.toggle()">ngx-manager</span>
     </mat-toolbar>
-    aaaa {{isHandset$ | async}}
     <!-- Add Content Here -->
-    <app-dashboard></app-dashboard>
+    <router-outlet (deactivate)="onDeactivate()"></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
