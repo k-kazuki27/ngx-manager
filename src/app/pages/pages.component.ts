@@ -22,5 +22,8 @@ export class PagesComponent implements OnInit {
   }
 
   onDeactivate(): void {
+    const mainStyle = document.getElementById('main-style');
+    mainStyle.scrollTop = 0;
+    window.scrollTo(0, 0);
   }
 }
