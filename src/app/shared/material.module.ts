@@ -3,6 +3,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { NgModule } from '@angular/core';
 import {
+  MAT_DATE_LOCALE,
   MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -81,6 +82,7 @@ import {
     MatTooltipModule,
     MatTreeModule
   ],
-  declarations: []
+  declarations: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'ja-JP' }]
 })
 export class MaterialModule { }
