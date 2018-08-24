@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { MaterialModule } from '../../shared/material.module';
-import {SharedModule} from '../../shared/shared.module';
+import { MaterialModule, SharedModule } from '../../shared';
 import { FormRoutingModule } from './form-routing.module';
 import { FormComponent } from './form.component';
 
