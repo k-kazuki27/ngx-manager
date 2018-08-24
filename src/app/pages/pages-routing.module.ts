@@ -9,6 +9,7 @@ const routes: Routes = [
     component: PagesComponent,
     children: [
       { path: 'form', loadChildren: './form/form.module#FormModule' },
+      { path: 'list', loadChildren: './list/list.module#ListModule' },
       { path: '**', redirectTo: 'form' }
     ]
   }
