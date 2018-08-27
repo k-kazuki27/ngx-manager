@@ -3,6 +3,13 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>ngx-manager</span>
+  <span class="spacer"></span>
+  <span>
+    <mat-icon>person</mat-icon>{{loginUserName}}
+  </span>
+  <button type="button" mat-icon-button (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [fixedTopGap]="(isHandset$ | async) ? 56 : 64" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"

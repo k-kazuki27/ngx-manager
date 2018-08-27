@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,19 +12,24 @@ import { map } from 'rxjs/operators';
 })
 export class PagesComponent implements OnInit {
 
+  loginUserName = 'ログインユーザ';
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
   onDeactivate(): void {
-    const mainStyle = document.getElementById('main-style');
-    mainStyle.scrollTop = 0;
     window.scrollTo(0, 0);
+  }
+
+  logout() {
+    this.router.navigate(['/login']);
   }
 }
