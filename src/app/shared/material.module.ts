@@ -22,6 +22,7 @@ import {
   MatListModule,
   MatMenuModule,
   MatNativeDateModule,
+  MatPaginatorIntl,
   MatPaginatorModule,
   MatProgressBarModule,
   MatProgressSpinnerModule,
@@ -40,6 +41,27 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+
+export class CustomMatPaginatorIntl extends MatPaginatorIntl {
+  itemsPerPageLabel = '表示件数';
+  nextPageLabel = '次のページ';
+  previousPageLabel = '前のページ';
+  firstPageLabel = '最初のページ';
+  lastPageLabel = '最後のページ';
+
+  getRangeLabel = function (page, pageSize, length) {
+    if (length === 0 || pageSize === 0) {
+      return length + '件';
+    }
+    length = Math.max(length, 0);
+    const startIndex = page * pageSize;
+    const endIndex = startIndex < length ?
+      Math.min(startIndex + pageSize, length) :
+      startIndex + pageSize;
+    return '全' + length + '件中 ' + (startIndex + 1) + '件 〜 ' + endIndex + '件を表示';
+  };
+}
+
 
 const modules = [
   CdkTableModule,
@@ -90,6 +112,10 @@ const modules = [
     ...modules
   ],
   declarations: [],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'ja-JP' }]
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'ja-JP' },
+    { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }
+  ]
 })
 export class MaterialModule { }
+
