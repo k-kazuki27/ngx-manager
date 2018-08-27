@@ -18,8 +18,27 @@ mat-toolbar
   background-color: $header-color;
   z-index: 1;
 
-.spacer 
+.nav-spacer 
   flex: 1 1 auto;
 
+.visible-md 
+    display: none;
+
+.visible-sm 
+    display: none;
+
+@media screen and (max-width: 992px) 
+    .visible-md 
+        display: block;
+
+@media screen and (max-width: 768px) 
+    .visible-sm 
+        display: block;
+    .nav-brand 
+        width: 100%;
+ 
+@media screen and (max-width: 768px) 
+    .hidden-sm 
+        display: none;    
 
 
