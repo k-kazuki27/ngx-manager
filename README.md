@@ -28,3 +28,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## mat-icon
 https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/
+
+## RxJS
+https://www.learnrxjs.io/

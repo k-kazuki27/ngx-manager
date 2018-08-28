@@ -1,21 +1,24 @@
-<div class="login-page">
-  <div class="form">
-    <form class="register-form">
-      <input type="text" placeholder="name" />
-      <input type="password" placeholder="password" />
-      <input type="text" placeholder="email address" />
-      <button>create</button>
-      <p class="message">Already registered?
-        <a href="#">Sign In</a>
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Username" formControlName="username">
+        </mat-form-field>
       </p>
-    </form>
-    <form class="login-form">
-      <input type="text" placeholder="username" />
-      <input type="password" placeholder="password" />
-      <button>login</button>
-      <p class="message">Not registered?
-        <a href="#">Create an account</a>
+
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+        </mat-form-field>
       </p>
+
+
+      <p class="loginButtons">
+        <button type="submit" mat-button>Login</button>
+      </p>
+
     </form>
-  </div>
-</div>
+  </mat-card-content>
+</mat-card>
