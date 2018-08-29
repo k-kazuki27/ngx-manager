@@ -31,3 +31,6 @@ https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/
 
 ## RxJS
 https://www.learnrxjs.io/
+
+## NgRX
+https://github.com/ngrx/platform/tree/master/docs/schematics

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { select, Store } from '@ngrx/store';
+
+import * as LoginActions from './actions/login.actions';
+import * as fromLogin from './reducers';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +12,22 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  error$ = this.store.pipe(select(fromLogin.getLoginError));
+
+
   form: FormGroup = new FormGroup({
-    username: new FormControl(''),
+    mail: new FormControl(''),
     password: new FormControl(''),
   });
 
-  constructor() { }
+  constructor(private store: Store<fromLogin.State>) { }
 
   ngOnInit() {
   }
-  submit() { }
+
+  submit() {
+    console.log(this.form.value);
+    this.store.dispatch(new LoginActions.Login(this.form.value));
+  }
 
 }
