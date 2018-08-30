@@ -34,3 +34,9 @@ https://www.learnrxjs.io/
 
 ## NgRX
 https://github.com/ngrx/platform/tree/master/docs/schematics
+
+## amplify
+```
+npm install -g @aws-amplify/cli
+```
+https://aws-amplify.github.io/amplify-js/media/angular_guide.html
