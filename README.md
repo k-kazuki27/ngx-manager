@@ -34,6 +34,13 @@ https://www.learnrxjs.io/
 
 ## NgRX
 https://github.com/ngrx/platform/tree/master/docs/schematics
+アクションは『何か』が起こった時、Storeに『どんなデータ』を利用するかということを定義
+Reducerは、前の状態とアクションを取り、次の状態を返す純粋な関数
+
+ex.
+https://github.com/puku0x/ngrx-todo
+
+https://github.com/nrwl/nx
 
 ## amplify
 ```

@@ -1,6 +1,6 @@
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 
-import * as fromRoot from '../../reducers';
+import * as fromRoot from '../../core/reducers';
 import { LoginActions } from '../actions/login.actions';
 import * as fromLogin from './login.reducer';
 
