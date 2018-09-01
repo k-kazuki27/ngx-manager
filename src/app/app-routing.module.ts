@@ -10,7 +10,9 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes,
     {
       useHash: true,
-      onSameUrlNavigation: 'reload'
+      onSameUrlNavigation: 'reload',
+      scrollPositionRestoration: 'enabled', // ブラウザバックしたときに遷移前のスクロール位置に復元する
+      anchorScrolling: 'enabled' // アンカーリンク有効
     }
   )],
   exports: [RouterModule]
