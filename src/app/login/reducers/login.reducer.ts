@@ -47,6 +47,6 @@ export function reducer(state = initialState, action: LoginActions): State {
   }
 }
 
-export const getLoggedIn = (state: State) => state.loggedIn;
+export const getLoggedIn = (state: State) => state;
 export const getLoginUser = (state: State) => state.loginUser;
-export const getError = (state: State) => state.error;
+export const getLoginError = (state: State) => state.error;
