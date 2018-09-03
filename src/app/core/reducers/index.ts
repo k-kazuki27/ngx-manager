@@ -3,6 +3,7 @@ import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { storeFreeze } from 'ngrx-store-freeze';
 
 import { environment } from '../../../environments/environment';
+import * as fromLogin from '../../login/reducers/login.reducer';
 
 /**
  * storeFreeze prevents state from being mutated. When mutation occurs, an
@@ -14,6 +15,7 @@ import { environment } from '../../../environments/environment';
  * our top level state interface is just a map of keys to inner state types.
  */
 export interface State {
+    auth: fromLogin.State;
     router: fromRouter.RouterReducerState;
 }
 
@@ -23,6 +25,7 @@ export interface State {
  * and the current or initial state and return a new immutable state.
  */
 export const reducers: ActionReducerMap<State> = {
+    auth: fromLogin.reducer,
     router: fromRouter.routerReducer,
 };
 

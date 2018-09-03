@@ -33,11 +33,12 @@ export class LoginEffects {
   @Effect({ dispatch: false })
   loginSuccess$ = this.actions$.pipe(
     ofType(LoginActionTypes.LoginSuccess),
-    tap(() => this.router.navigate(['/']))
+    tap(() => { console.log('ああああああ'); this.router.navigate(['/']); })
   );
 
   @Effect({ dispatch: false })
   loginRedirect$ = this.actions$.pipe(
+    tap(test => { console.log('to login'); }),
     ofType(LoginActionTypes.LoginRedirect, LoginActionTypes.Logout),
     tap(authed => {
       console.log('to login');

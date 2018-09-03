@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './shared/guard/auth.guard';
+
 const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginModule' },
-  { path: '', loadChildren: './pages/pages.module#PagesModule' },
+  { path: '', loadChildren: './pages/pages.module#PagesModule', canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 ];
 @NgModule({
@@ -15,6 +17,7 @@ const routes: Routes = [
       anchorScrolling: 'enabled' // アンカーリンク有効
     }
   )],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

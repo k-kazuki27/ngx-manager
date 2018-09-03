@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import * as fromRoot from './core/reducers';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +11,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngx-manager';
+  loggedIn$: Observable<boolean>;
+
+  constructor(private store: Store<fromRoot.State>) {
+    // this.loggedIn$ = this.store.pipe(select(fromAuth.getLoggedIn));
+  }
 }
+
