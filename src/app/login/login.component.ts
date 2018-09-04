@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 
-import * as LoginActions from './actions/login.actions';
-import * as fromLogin from './reducers';
+import { fromLogin, LoginActions } from '../core';
+
+
 
 @Component({
   selector: 'app-login',

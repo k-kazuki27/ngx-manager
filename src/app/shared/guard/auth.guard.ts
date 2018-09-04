@@ -4,8 +4,9 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
-import * as LoginActions from '../../login/actions/login.actions';
-import * as fromLogin from '../../login/reducers';
+import { LoginActions } from '../../core';
+import * as fromLogin from '../../core/ngrx/reducers/auth';
+
 
 @Injectable({
   providedIn: 'root'

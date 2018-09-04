@@ -5,9 +5,9 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../../environments/environment';
-import { LoginEffects } from '../login/effects/login.effects';
-import { reducers } from '../login/reducers';
-import { metaReducers, rootReducers } from './reducers/root';
+import { LoginEffects } from './ngrx/effects/login.effects';
+import { reducers } from './ngrx/reducers/auth';
+import { metaReducers, rootReducers } from './ngrx/reducers/root';
 
 @NgModule({
   imports: [
