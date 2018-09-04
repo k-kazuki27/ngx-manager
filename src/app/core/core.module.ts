@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment';
 import { LoginEffects } from './ngrx/effects/login.effects';
 import { reducers } from './ngrx/reducers/auth';
 import { metaReducers, rootReducers } from './ngrx/reducers/root';
+import { LoginService } from './ngrx/services/login.service';
 
 @NgModule({
   imports: [
@@ -52,6 +53,7 @@ import { metaReducers, rootReducers } from './ngrx/reducers/root';
     EffectsModule.forFeature([LoginEffects])
   ],
   exports: [],
+  providers: [LoginService],
   declarations: []
 })
 

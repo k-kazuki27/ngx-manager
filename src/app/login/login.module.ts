@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { MaterialModule, SharedModule } from '../shared';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-import { LoginService } from './services/login.service';
 
 @NgModule({
   imports: [
@@ -11,7 +10,7 @@ import { LoginService } from './services/login.service';
     SharedModule,
     MaterialModule
   ],
-  providers: [LoginService],
+  providers: [],
   declarations: [LoginComponent]
 })
 export class LoginModule { }
