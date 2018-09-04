@@ -8,7 +8,7 @@ export interface AuthState {
     login: fromLogin.State;
 }
 
-export interface State extends fromRoot.State {
+export interface State extends fromRoot.RootState {
     auth: AuthState;
 }
 

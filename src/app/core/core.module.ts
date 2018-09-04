@@ -5,7 +5,9 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../../environments/environment';
-import { metaReducers, reducers } from './reducers';
+import { LoginEffects } from '../login/effects/login.effects';
+import { reducers } from '../login/reducers';
+import { metaReducers, rootReducers } from './reducers/root';
 
 @NgModule({
   imports: [
@@ -16,7 +18,7 @@ import { metaReducers, reducers } from './reducers';
     * meta-reducer. This returns all providers for an @ngrx/store
     * based application.
     */
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(rootReducers, { metaReducers }),
 
     /**
      * @ngrx/router-store keeps router state up-to-date in the store.
@@ -45,7 +47,9 @@ import { metaReducers, reducers } from './reducers';
     *
     * See: https://github.com/ngrx/platform/blob/master/docs/effects/api.md#forroot
     */
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    StoreModule.forFeature('auth', reducers),
+    EffectsModule.forFeature([LoginEffects])
   ],
   exports: [],
   declarations: []
