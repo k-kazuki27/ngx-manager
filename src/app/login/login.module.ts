@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { ChangePasswordComponent } from '../modals/change-password/change-password.component';
 import { MaterialModule, SharedModule } from '../shared';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
@@ -11,6 +12,7 @@ import { LoginComponent } from './login.component';
     MaterialModule
   ],
   providers: [],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent, ChangePasswordComponent],
+  entryComponents: [ChangePasswordComponent]
 })
 export class LoginModule { }

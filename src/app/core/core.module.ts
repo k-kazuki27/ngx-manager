@@ -3,6 +3,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 
 import { environment } from '../../environments/environment';
 import { LoginEffects } from './ngrx/effects/login.effects';
@@ -50,10 +51,11 @@ import { LoginService } from './ngrx/services/login.service';
     */
     EffectsModule.forRoot([]),
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([LoginEffects])
+    EffectsModule.forFeature([LoginEffects]),
+    AmplifyAngularModule
   ],
   exports: [],
-  providers: [LoginService],
+  providers: [LoginService, AmplifyService],
   declarations: []
 })
 

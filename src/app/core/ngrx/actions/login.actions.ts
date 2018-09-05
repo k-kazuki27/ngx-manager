@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { LoginForm, LoginUser } from '../models/login';
+import { LoginForm } from '../models/login';
 
 export enum LoginActionTypes {
   Login = '[Login] Login',
@@ -8,6 +8,7 @@ export enum LoginActionTypes {
   LoginSuccess = '[Login] Login Success',
   LoginFailure = '[Login] Login Failure',
   LoginRedirect = '[Login] Login Redirect',
+  NewPasswordRequired = '[Login] New Password Required'
 }
 
 export class Login implements Action {
@@ -21,7 +22,7 @@ export class Logout implements Action {
 
 export class LoginSuccess implements Action {
   readonly type = LoginActionTypes.LoginSuccess;
-  constructor(public payload: { loginUser: LoginUser }) { }
+  constructor(public payload: any) { }
 }
 
 export class LoginFailure implements Action {
@@ -33,9 +34,15 @@ export class LoginRedirect implements Action {
   readonly type = LoginActionTypes.LoginRedirect;
 }
 
+export class NewPasswordRequired implements Action {
+  readonly type = LoginActionTypes.LoginRedirect;
+  constructor(public payload: any) { }
+}
+
 export type LoginActions =
   | Login
   | Logout
   | LoginSuccess
   | LoginFailure
-  | LoginRedirect;
+  | LoginRedirect
+  | NewPasswordRequired;
