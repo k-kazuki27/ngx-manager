@@ -1,16 +1,15 @@
 import { LoginActions, LoginActionTypes } from '../actions/login.actions';
-import { LoginUser } from '../models/login';
 
 
 export interface State {
   loggedIn: boolean;
-  loginUser: LoginUser | null;
+  loginUser: any | null;
   error: string | null;
 }
 
 export const initialState: State = {
   loggedIn: false,
-  loginUser: { name: '' },
+  loginUser: null,
   error: null
 };
 
@@ -19,7 +18,7 @@ export function reducer(state = initialState, action: LoginActions): State {
   console.log(action.type);
   switch (action.type) {
     case LoginActionTypes.LoginSuccess: {
-      console.log('LoginSuccess', action.payload);
+      console.log('■LoginSuccess', action.payload);
       return {
         ...state,
         loggedIn: true,
@@ -33,7 +32,7 @@ export function reducer(state = initialState, action: LoginActions): State {
         ...state,
         loggedIn: false,
         loginUser: null,
-        error: action.payload
+        error: action.payload.error
       };
     }
 

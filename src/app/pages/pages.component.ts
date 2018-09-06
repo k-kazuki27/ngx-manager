@@ -2,9 +2,11 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material';
 import { NavigationEnd, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { fromLogin, LoginActions } from '../core';
 
 @Component({
   selector: 'app-pages',
@@ -23,6 +25,7 @@ export class PagesComponent implements OnInit {
     );
 
   constructor(
+    private store: Store<fromLogin.State>,
     private breakpointObserver: BreakpointObserver,
     private router: Router) {
     this.router.events.subscribe(val => {
@@ -40,6 +43,6 @@ export class PagesComponent implements OnInit {
   }
 
   logout() {
-    this.router.navigate(['/login']);
+    this.store.dispatch(new LoginActions.Logout());
   }
 }

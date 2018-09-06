@@ -8,7 +8,8 @@ export enum LoginActionTypes {
   LoginSuccess = '[Login] Login Success',
   LoginFailure = '[Login] Login Failure',
   LoginRedirect = '[Login] Login Redirect',
-  NewPasswordRequired = '[Login] New Password Required'
+  NewPasswordRequired = '[Login] New Password Required',
+  SessionCheck = '[Login] Session Check'
 }
 
 export class Login implements Action {
@@ -22,12 +23,12 @@ export class Logout implements Action {
 
 export class LoginSuccess implements Action {
   readonly type = LoginActionTypes.LoginSuccess;
-  constructor(public payload: any) { }
+  constructor(public payload: { 'loginUser': any }) { }
 }
 
 export class LoginFailure implements Action {
   readonly type = LoginActionTypes.LoginFailure;
-  constructor(public payload: any) { }
+  constructor(public payload: { 'error': any }) { }
 }
 
 export class LoginRedirect implements Action {
@@ -39,10 +40,15 @@ export class NewPasswordRequired implements Action {
   constructor(public payload: any) { }
 }
 
+export class SessionCheck implements Action {
+  readonly type = LoginActionTypes.SessionCheck;
+}
+
 export type LoginActions =
   | Login
   | Logout
   | LoginSuccess
   | LoginFailure
   | LoginRedirect
-  | NewPasswordRequired;
+  | NewPasswordRequired
+  | SessionCheck;
