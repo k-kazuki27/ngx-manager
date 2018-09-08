@@ -33,8 +33,6 @@ export class PagesComponent implements OnInit {
         this.sidenav.toggle();
       }
     });
-
-    this.userName$.subscribe(user => console.log(user));
   }
 
   ngOnInit() { }
