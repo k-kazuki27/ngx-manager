@@ -1,30 +1,38 @@
-# NgxManager
+# ngx-manager
+Simple Dashboard Admin App built using Angular 6 and Abgular Material
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.0.
+### Introduction
 
-## Development server
+Provides fast, reliable and extensible starter for the development of Angular projects.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`ngx-manager` provides the following features:
 
-## Code scaffolding
+*   angular-v6.0.0
+*   angular/cli-v6.0.0
+*   angular/material-v6.0.0
+*   [ngrx-v6.0.0](https://github.com/ngrx/platform)
+*   [aws-amplify-angular-v2.0.0](https://github.com/daikiojm/angular-aws-amplify)
+*   Following the best practices.
+*   Ahead-of-Time compilation support.
+*   Production and development builds.
+*   Tree-Shaking production builds.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### How to start
+**Note** that this seed project requires **node >=v6.9.0 and npm >=3**.
 
-## Build
+In order to start the project use:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```bash
+$ git clone https://github.com/k-kazuki27/ngx-manager.git
+$ cd ngx-manager
+$ npm install -g @aws-amplify/cli
+$ npm install
+$ amplify init
+$ amplify add auth
+$ amplify add storage
+$ amplify push
+$ npm start
+```
 
 ## mat-icon
 https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/
