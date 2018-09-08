@@ -36,8 +36,8 @@ export class LoginRedirect implements Action {
 }
 
 export class NewPasswordRequired implements Action {
-  readonly type = LoginActionTypes.LoginRedirect;
-  constructor(public payload: any) { }
+  readonly type = LoginActionTypes.NewPasswordRequired;
+  constructor(public payload: { 'loginUser': any }) { }
 }
 
 export class SessionCheck implements Action {

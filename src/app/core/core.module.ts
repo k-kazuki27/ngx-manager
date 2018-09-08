@@ -9,7 +9,6 @@ import { environment } from '../../environments/environment';
 import { LoginEffects } from './ngrx/effects/login.effects';
 import { reducers } from './ngrx/reducers/auth';
 import { metaReducers, rootReducers } from './ngrx/reducers/root';
-import { LoginService } from './ngrx/services/login.service';
 
 @NgModule({
   imports: [
@@ -55,8 +54,9 @@ import { LoginService } from './ngrx/services/login.service';
     AmplifyAngularModule
   ],
   exports: [],
-  providers: [LoginService, AmplifyService],
-  declarations: []
+  providers: [AmplifyService],
+  declarations: [],
+  entryComponents: []
 })
 
 /**

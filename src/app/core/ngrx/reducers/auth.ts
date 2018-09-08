@@ -20,7 +20,7 @@ export const selectAuthState = createFeatureSelector<State, AuthState>('auth');
 
 export const selectAuthLoginState = createSelector(
     selectAuthState,
-    (state: AuthState) => { console.log('■■■■■■', state); return state.login; }
+    (state: AuthState) => state.login
 );
 
 export const getLoggedIn = createSelector(
@@ -36,5 +36,10 @@ export const getLoginUser = createSelector(
 export const getLoginError = createSelector(
     selectAuthLoginState,
     fromLogin.getLoginError
+);
+
+export const getAuth = createSelector(
+    selectAuthLoginState,
+    fromLogin.getAuth
 );
 

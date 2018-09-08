@@ -14,16 +14,22 @@ export const initialState: State = {
 };
 
 export function reducer(state = initialState, action: LoginActions): State {
-  console.log('★★★★★★★★★★★★★★★★★★★★');
-  console.log(action.type);
   switch (action.type) {
     case LoginActionTypes.LoginSuccess: {
-      console.log('■LoginSuccess', action.payload);
       return {
         ...state,
         loggedIn: true,
         loginUser: action.payload.loginUser,
         error: null
+      };
+    }
+
+    case LoginActionTypes.NewPasswordRequired: {
+      return {
+        ...state,
+        loggedIn: false,
+        loginUser: action.payload.loginUser,
+        error: 'パスワードを変更後、再度ログインしてください。'
       };
     }
 
@@ -46,6 +52,7 @@ export function reducer(state = initialState, action: LoginActions): State {
   }
 }
 
-export const getLoggedIn = (state: State) => state;
+export const getLoggedIn = (state: State) => state.loggedIn;
 export const getLoginUser = (state: State) => state.loginUser;
 export const getLoginError = (state: State) => state.error;
+export const getAuth = (state: State) => state;

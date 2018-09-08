@@ -14,10 +14,10 @@ import { ChangePasswordComponent } from '../modals/change-password/change-passwo
 export class LoginComponent implements OnInit {
 
   error$ = this.store.pipe(select(fromLogin.getLoginError));
-
+  auth$ = this.store.pipe(select(fromLogin.getAuth));
 
   form: FormGroup = new FormGroup({
-    mail: new FormControl(''),
+    id: new FormControl(''),
     password: new FormControl(''),
   });
 
@@ -25,22 +25,21 @@ export class LoginComponent implements OnInit {
     private store: Store<fromLogin.State>,
     public dialog: MatDialog) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.auth$.subscribe(auth => {
+      if (auth.error === 'NEW_PASSWORD_REQUIRED') {
+        const dialogRef = this.dialog.open(ChangePasswordComponent, {
+          width: '250px',
+          data: auth.loginUser
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed', result);
+        });
+      }
+    });
+  }
 
   submit() {
-    console.log(this.form.value);
     this.store.dispatch(new LoginActions.Login(this.form.value));
   }
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ChangePasswordComponent, {
-      width: '250px',
-      data: { name: 'aaaa', animal: 'aaaa' }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
-
 }
