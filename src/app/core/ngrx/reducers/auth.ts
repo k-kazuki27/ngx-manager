@@ -33,6 +33,11 @@ export const getLoginUser = createSelector(
     fromLogin.getLoginUser
 );
 
+export const getLoginUserName = createSelector(
+    selectAuthLoginState,
+    fromLogin.getLoginUserName
+);
+
 export const getLoginError = createSelector(
     selectAuthLoginState,
     fromLogin.getLoginError

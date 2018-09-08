@@ -2,7 +2,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material';
 import { NavigationEnd, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -17,7 +17,7 @@ export class PagesComponent implements OnInit {
 
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
-  loginUserName = 'ログインユーザ';
+  userName$ = this.store.pipe(select(fromLogin.getLoginUserName));
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -33,10 +33,11 @@ export class PagesComponent implements OnInit {
         this.sidenav.toggle();
       }
     });
+
+    this.userName$.subscribe(user => console.log(user));
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   onDeactivate(): void {
     window.scrollTo(0, 0);

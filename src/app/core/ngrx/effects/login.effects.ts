@@ -83,12 +83,12 @@ export class LoginEffects {
       return this.amplifyService.authState().pipe(
         map(loginUser => {
           if (loginUser.state === 'signedIn') {
-            return new LoginSuccess({ loginUser });
+            return new LoginSuccess({ 'loginUser': loginUser.user });
           } else {
             return new LoginRedirect();
           }
         }),
-        catchError(error => of(new LoginFailure({ error })))
+        catchError(error => of(new LoginFailure({ 'error': error })))
       );
     })
   );
