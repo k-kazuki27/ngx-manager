@@ -9,14 +9,13 @@
   </button>
 
   <span class="hidden-sm">{{userName$ | async}}</span>
-  <button type="button" mat-icon-button (click)="logout()">
+  <button type="button" mat-icon-button (click)="logout()" matTooltip="ログアウト">
     <mat-icon>exit_to_app</mat-icon>
   </button>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [fixedTopGap]="(isHandset$ | async) ? 56 : 64"
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="!(isHandset$ | async)">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [fixedTopGap]="56" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-nav-list>
       <a mat-list-item routerLink="/form">Form</a>
       <a mat-list-item routerLink="/list">List</a>
