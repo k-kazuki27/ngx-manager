@@ -11,8 +11,9 @@ export class CustomInterceptorService implements HttpInterceptor {
   constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const headers = request.headers;
-    const req = request.clone({ headers: headers, withCredentials: true });
+    let headers = request.headers;
+    headers = request.headers.set('Authorization', '');
+    const req = request.clone({ headers: headers, withCredentials: false });
     return next.handle(req).pipe(tap(event => {
       if (event instanceof HttpResponse) { }
     }, (err: any) => {
