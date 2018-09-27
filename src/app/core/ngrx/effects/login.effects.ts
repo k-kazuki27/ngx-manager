@@ -14,6 +14,7 @@ import {
   NewPasswordRequired,
 } from '../actions/login.actions';
 import { LoginForm } from '../models/login';
+import { AuthService } from './../../services/auth.service';
 
 
 
@@ -23,7 +24,8 @@ export class LoginEffects {
   constructor(
     private actions$: Actions,
     private amplifyService: AmplifyService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   @Effect()
@@ -36,6 +38,7 @@ export class LoginEffects {
           if (loginUser.challengeName === 'NEW_PASSWORD_REQUIRED') {
             return new NewPasswordRequired({ 'loginUser': loginUser });
           } else {
+            this.authService.setIdToken(loginUser.signInUserSession.idToken.jwtToken);
             return new LoginSuccess({ 'loginUser': loginUser });
           }
         })

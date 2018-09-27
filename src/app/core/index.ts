@@ -4,3 +4,5 @@ import * as fromRoot from './ngrx/reducers/root';
 
 export * from './core.module';
 export { fromRoot, LoginActions, fromLogin };
+
+export * from './services/auth.service';
