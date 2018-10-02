@@ -27,9 +27,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.auth$.subscribe(auth => {
-      if (auth.error === 'NEW_PASSWORD_REQUIRED') {
+      if (auth.error === 'パスワードを変更後、再度ログインしてください。') {
         const dialogRef = this.dialog.open(ChangePasswordComponent, {
-          width: '250px',
           data: auth.loginUser
         });
         dialogRef.afterClosed().subscribe(result => {

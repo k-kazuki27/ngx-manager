@@ -6,7 +6,7 @@ import { AmplifyService } from 'aws-amplify-angular';
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.css']
+  styleUrls: ['./change-password.component.sass']
 })
 export class ChangePasswordComponent implements OnInit {
 
