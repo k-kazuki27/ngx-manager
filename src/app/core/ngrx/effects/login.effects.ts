@@ -32,26 +32,27 @@ export class LoginEffects {
   login$ = this.actions$.pipe(
     ofType<Login>(LoginActionTypes.Login),
     map(action => action.payload),
-    exhaustMap((loginForm: LoginForm) =>
-      this.amplifyService.auth().signIn(loginForm.id, loginForm.password)
-        .then(loginUser => {
-          if (loginUser.challengeName === 'NEW_PASSWORD_REQUIRED') {
-            return new NewPasswordRequired({ 'loginUser': loginUser });
-          } else {
-            this.authService.setIdToken(loginUser.signInUserSession.idToken.jwtToken);
-            return new LoginSuccess({ 'loginUser': loginUser });
-          }
-        })
-        .catch(error => {
-          let msg: string;
-          if (error.message !== undefined) {
-            msg = error.message;
-          } else {
-            msg = error;
-          }
-          return new LoginFailure({ 'error': msg });
-        })
-    )
+    exhaustMap((loginForm: LoginForm) => {
+      return of(new LoginSuccess({ 'loginUser': {} }));
+      // this.amplifyService.auth().signIn(loginForm.id, loginForm.password)
+      //   .then(loginUser => {
+      //     if (loginUser.challengeName === 'NEW_PASSWORD_REQUIRED') {
+      //       return new NewPasswordRequired({ 'loginUser': loginUser });
+      //     } else {
+      //       this.authService.setIdToken(loginUser.signInUserSession.idToken.jwtToken);
+      //       return new LoginSuccess({ 'loginUser': loginUser });
+      //     }
+      //   })
+      //   .catch(error => {
+      //     let msg: string;
+      //     if (error.message !== undefined) {
+      //       msg = error.message;
+      //     } else {
+      //       msg = error;
+      //     }
+      //     return new LoginFailure({ 'error': msg });
+      //   });
+    })
   );
 
   @Effect({ dispatch: false })
