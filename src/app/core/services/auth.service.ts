@@ -8,7 +8,7 @@ export class AuthService {
 
   private jwt: string;
 
-  constructor(private amplifyService: AmplifyService) { }
+  constructor() { }
 
   getIdToken(): string {
     return this.jwt ? this.jwt : '';
