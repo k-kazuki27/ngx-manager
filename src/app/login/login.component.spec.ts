@@ -1,5 +1,8 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { CoreModule } from '../core';
+import { SharedModule } from '../shared';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
@@ -8,9 +11,10 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
-    })
-    .compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      declarations: [LoginComponent],
+      imports: [CoreModule, SharedModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

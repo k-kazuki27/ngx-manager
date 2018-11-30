@@ -1,4 +1,7 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'src/app/shared';
 
 import { ListComponent } from './list.component';
 
@@ -8,9 +11,10 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListComponent ]
-    })
-    .compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      declarations: [ListComponent],
+      imports: [MaterialModule, BrowserAnimationsModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

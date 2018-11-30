@@ -4,18 +4,18 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
-import { fromLogin, LoginActions } from '../../core';
-
+import { CoreModule, fromLogin, LoginActions } from '../../core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: CoreModule
 })
 export class AuthGuard implements CanActivate {
-  constructor(private store: Store<fromLogin.State>) { }
+  constructor(private store: Store<fromLogin.State>) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    state: RouterStateSnapshot
+  ): Observable<boolean> | Promise<boolean> | boolean {
     return this.store.pipe(
       select(fromLogin.getLoggedIn),
       map(authed => {
